@@ -1,0 +1,14 @@
+version: '3.2'
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: sh ./docker-start.sh
+    environment:
+      - NODE_ENV=dev
+    volumes:
+      - .:/home/app
+      - /home/app/node_modules
+    ports:
+      - "2025:2025"
